@@ -1,10 +1,12 @@
 import React from "react";
-import groupPic from "../assets/Group 27.png"
+import groupPic from "../assets/Group 27.png";
 import SignIn from "./SignIn";
+
 function Hero() {
   return (
     <div className="flex bg-zinc-50 py-12">
-      <div className="flex-2 pl-6 w-4/5">
+      {/* Full-width on mobile view */}
+      <div className="w-full lg:w-4/5 px-6">
         <h1 className="text-3xl font-semibold font-poppins italic text-left mb-8">
           Explore your <span className="text-blue-300">hobby</span> or{" "}
           <span className="text-[#8064A2]">passion</span>
@@ -21,10 +23,14 @@ function Hero() {
           yourself, your students, products, services or events. Hop on your
           hobbyhorse and enjoy the ride.
         </h3>
-        <img src={groupPic} alt="group pic"/>
+        <img src={groupPic} alt="group pic" />
       </div>
-      <div className="flex-3 pl-6 w-3/5">
-        <h1 className="text-2xl font-semibold italic text-center"><SignIn/></h1>
+
+      {/* Hidden on mobile view */}
+      <div className="hidden lg:flex lg:flex-3 pl-6 w-3/5">
+        <h1 className="text-2xl font-semibold italic text-center">
+          <SignIn />
+        </h1>
       </div>
     </div>
   );
