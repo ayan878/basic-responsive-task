@@ -11,7 +11,7 @@ function MobileSignIn() {
 
   const handleButton = () => {
     setIsSignIn(!isSignIn);
-    setIsJoinIn(!isSignIn); // Update isJoinIn based on the opposite of isSignIn
+    setIsJoinIn(!isSignIn); 
   };
 
   return (
