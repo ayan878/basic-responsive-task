@@ -36,6 +36,7 @@ function SignIn() {
           Join In
         </button>
       </div>
+
       <div className="flex flex-col gap-2 w-full">
         <button className="border flex items-center w-full h-12 rounded-md p-2 gap-2 hover:bg-gray-100">
           <img src={google} alt="google" className="h-6" />
@@ -50,6 +51,7 @@ function SignIn() {
           </span>
         </button>
       </div>
+
       <div className="relative my-4 w-full">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t"></div>
@@ -60,12 +62,31 @@ function SignIn() {
           </span>
         </div>
       </div>
+
       <div className="flex flex-col gap-4 w-full">
+        <input
+          type="email"
+          className={`w-full max-w-md bg-white text-sm p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8064A2] ${
+            isJoinIn ? "border-[#8064A2]" : "border-transparent"
+          }`}
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          className={`w-full max-w-md bg-white text-sm p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8064A2] ${
+            isJoinIn ? "border-[#8064A2]" : "border-transparent"
+          }`}
+          placeholder="Password"
+        />
         {isSignIn ? (
           <div className="flex items-center justify-between w-full text-sm">
             <div className="flex items-center justify-between gap-2">
-              <input type="checkbox" id="remember-me" className="" />
-              <label htmlFor="remember-me" className="not-italic">
+              <input type="checkbox" id="remember-me" className="mr-2" />
+              <label
+                htmlFor="remember-me"
+                className="not-italic max-w-md"
+                style={{ width: "calc(100% - 20px)" }}
+              >
                 Remember Me
               </label>
             </div>
@@ -75,13 +96,13 @@ function SignIn() {
             </button>
           </div>
         ) : (
-          <p className="text-xs text-center text-gray-500 not-italic">
+          <p className="text-xs text-center text-gray-500 not-italic max-w-md">
             By continuing, you agree to our{" "}
             <span className="text-black">Terms of Service</span> and{" "}
             <span className="text-black">Privacy Policy</span>
           </p>
         )}
-        <button className="text-white text-lg w-full h-12 bg-[#8064A2] rounded-md">
+        <button className="text-white text-lg w-full h-12 bg-[#8064A2] rounded-md hover:bg-purple-600">
           {isSignIn ? "Continue" : "Agree and Continue"}
         </button>
       </div>
