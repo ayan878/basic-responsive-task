@@ -1,3 +1,4 @@
+import { Mic } from "lucide-react";
 import React from "react";
 import { FaQuoteLeft, FaPlay } from "react-icons/fa";
 
@@ -26,18 +27,24 @@ const Testimonial = () => {
             recommend it.
           </p>
         </div>
-        <div className="mt-6 flex flex-col md:flex-row justify-center items-center">
-          <button className="bg-purple-500 text-white p-4 rounded-full flex items-center justify-center w-16 h-16 mb-4 md:mb-0 md:mr-4">
-            <FaPlay className="text-2xl" />
-          </button>
-          <div className="text-center">
+        <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-2">
+          <div className="flex text-center w-full h-20 bg-[#8064a2] rounded-md justify-between  items-center p-8">
+            <button className="bg-purple-500 text-white p-4 rounded-full flex items-center justify-center w-12 h-12 mb-4 ml-4 md:mb-0 md:mr-4">
+              <FaPlay className="text-2xl" />
+            </button>
+            <hr className="w-full border px-12"></hr>
+            <Mic className="text-gray-400 w-14 h-12 rounded-full bg-white p-2 ml-2"/>
+          </div>
+          <div className="flex justify-between items-center">
             <img
-              src="https://via.placeholder.com/60" // Placeholder image, replace with the actual image source
+              src="https://via.placeholder.com/60" 
               alt="Shubha Nagarajan"
               className="rounded-full w-16 h-16 mx-auto mb-2"
             />
-            <h3 className="font-bold text-gray-800">Shubha Nagarajan</h3>
-            <p className="text-blue-600">Classical Dancer</p>
+            <div className="">
+              <h5 className="font-bold text-gray-800">Shubha Nagarajan</h5>
+              <p className="text-blue-600">Classical Dancer</p>
+            </div>
           </div>
         </div>
       </div>
