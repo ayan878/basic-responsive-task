@@ -8,7 +8,7 @@ import {
   FaYoutube,
   FaTelegramPlane,
   FaEnvelope,
-  FaChevronDown, // Import chevron down icon
+  FaChevronDown,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -17,134 +17,79 @@ const Footer = () => {
   const [isHowDoIOpen, setIsHowDoIOpen] = useState(false);
   const [isQuickLinksOpen, setIsQuickLinksOpen] = useState(false);
 
+  // Data for footer sections
+  const sections = [
+    {
+      title: "HobbyCue",
+      state: isAboutUsOpen,
+      setState: setIsAboutUsOpen,
+      links: [
+        { text: "About Us", to: "/about-us" },
+        { text: "Our Services", to: "/services" },
+        { text: "Work with Us", to: "/work-with-us" },
+        { text: "FAQ", to: "/faq" },
+        { text: "Contact Us", to: "/contact-us" },
+      ],
+    },
+    {
+      title: "How do I",
+      state: isHowDoIOpen,
+      setState: setIsHowDoIOpen,
+      links: [
+        { text: "Sign Up", to: "/sign-up" },
+        { text: "Add a Listing", to: "/add-listing" },
+        { text: "Claim Listing", to: "/claim-listing" },
+        { text: "Post a Query", to: "/post-query" },
+        { text: "Add a Blog Post", to: "/add-blog-post" },
+        { text: "Other Queries", to: "/other-queries" },
+      ],
+    },
+    {
+      title: "Quick Links",
+      state: isQuickLinksOpen,
+      setState: setIsQuickLinksOpen,
+      links: [
+        { text: "Listing Pages", to: "/listing-pages" },
+        { text: "Blog Posts", to: "/blog-posts" },
+        { text: "Shop/Store", to: "/shop-store" },
+        { text: "Community", to: "/community" },
+        { text: "Sitemap", to: "/sitemap" },
+      ],
+    },
+  ];
+
+  const toggleSection = (index) => {
+    const newState = !sections[index].state;
+    sections[index].setState(newState);
+  };
+
   return (
     <footer className="bg-gray-50 text-gray-800 py-10">
       <div className="container mx-auto flex flex-wrap justify-between">
-        <div className="w-full md:w-1/4 px-4 mb-8 md:mb-0">
-          <button
-            className="w-full flex justify-between items-center text-left md:text-base font-bold text-xl mb-2"
-            onClick={() => setIsAboutUsOpen(!isAboutUsOpen)}
-          >
-            <span>HobbyCue</span>
-            <FaChevronDown className="block md:hidden" />
-          </button>
-          <ul
-            className={`space-y-2 ${
-              isAboutUsOpen ? "block" : "hidden"
-            } md:block`}
-          >
-            <li className="text-left md:text-left">
-              <Link to="/about-us" className="hover:text-gray-400">
-                About Us
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/services" className="hover:text-gray-400">
-                Our Services
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/work-with-us" className="hover:text-gray-400">
-                Work with Us
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/faq" className="hover:text-gray-400">
-                FAQ
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/contact-us" className="hover:text-gray-400">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="w-full md:w-1/4 px-4 mb-8 md:mb-0">
-          <button
-            className="w-full flex justify-between items-center text-left md:text-base font-bold text-xl mb-2"
-            onClick={() => setIsHowDoIOpen(!isHowDoIOpen)}
-          >
-            <span>How do I</span>
-            <FaChevronDown className="block md:hidden" />
-          </button>
-          <ul
-            className={`space-y-2 ${
-              isHowDoIOpen ? "block" : "hidden"
-            } md:block`}
-          >
-            <li className="text-left md:text-left">
-              <Link to="/sign-up" className="hover:text-gray-400">
-                Sign Up
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/add-listing" className="hover:text-gray-400">
-                Add a Listing
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/claim-listing" className="hover:text-gray-400">
-                Claim Listing
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/post-query" className="hover:text-gray-400">
-                Post a Query
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/add-blog-post" className="hover:text-gray-400">
-                Add a Blog Post
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/other-queries" className="hover:text-gray-400">
-                Other Queries
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="w-full md:w-1/4 px-4 mb-8 md:mb-0">
-          <button
-            className="w-full flex justify-between items-center text-left md:text-base font-bold text-xl mb-2"
-            onClick={() => setIsQuickLinksOpen(!isQuickLinksOpen)}
-          >
-            <span>Quick Links</span>
-            <FaChevronDown className="block md:hidden" />
-          </button>
-          <ul
-            className={`space-y-2 ${
-              isQuickLinksOpen ? "block" : "hidden"
-            } md:block`}
-          >
-            <li className="text-left md:text-left">
-              <Link to="/listing-pages" className="hover:text-gray-400">
-                Listing Pages
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/blog-posts" className="hover:text-gray-400">
-                Blog Posts
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/shop-store" className="hover:text-gray-400">
-                Shop/Store
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/community" className="hover:text-gray-400">
-                Community
-              </Link>
-            </li>
-            <li className="text-left md:text-left">
-              <Link to="/sitemap" className="hover:text-gray-400">
-                Sitemap
-              </Link>
-            </li>
-          </ul>
-        </div>
+        {sections.map((section, index) => (
+          <div key={index} className="w-full md:w-1/4 px-4 mb-8 md:mb-0">
+            <button
+              className="w-full flex justify-between items-center text-left text-sm font-bold md:text-xl mb-2"
+              onClick={() => toggleSection(index)}
+            >
+              <span>{section.title}</span>
+              <FaChevronDown className="block md:hidden" />
+            </button>
+            <ul
+              className={`space-y-2 ${
+                section.state ? "block" : "hidden"
+              } md:block`}
+            >
+              {section.links.map((link, linkIndex) => (
+                <li key={linkIndex} className="text-left md:text-left">
+                  <Link to={link.to} className="hover:text-gray-400">
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
         <div className="w-full md:w-1/4 px-4 mb-8 md:mb-0">
           <h2 className="font-bold text-xl mb-2">Invite Friends</h2>
           <div className="flex space-x-2 mb-4">
@@ -157,8 +102,8 @@ const Footer = () => {
               Invite
             </button>
           </div>
-          <h2 className="font-bold text-xl mb-2">Social Media</h2>
-          <div className="flex space-x-4">
+          <h2 className="font-bold text-xl mb-2 ">Social Media</h2>
+          <div className="flex space-x-4 justify-center items-center">
             <Link className="text-gray-600 hover:text-gray-800">
               <FaFacebookF />
             </Link>
