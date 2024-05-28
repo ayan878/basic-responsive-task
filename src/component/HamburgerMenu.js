@@ -35,7 +35,10 @@ const HamburgerMenu = () => {
               <X />
             </button>
             <Link to="/sign-in">
-              <button className="text-[#8064a2] text-lg w-full h-10 border rounded-md hover:text-gray-800" onClick={closeMenu}>
+              <button
+                className="text-[#8064a2] text-lg w-full h-10 border rounded-md hover:text-gray-800 mb-4"
+                onClick={closeMenu}
+              >
                 Sign In
               </button>
             </Link>
@@ -46,8 +49,10 @@ const HamburgerMenu = () => {
                 className="text-gray-600 hover:text-gray-800 w-full flex justify-between items-center pl-4 pr-2"
                 onClick={() => setIsExploreOpen(!isExploreOpen)}
               >
-                <Compass />
-                Explore
+                <span className="flex gap-2">
+                  <Compass />
+                  Explore
+                </span>
                 <FaChevronDown
                   className={`ml-1 ${
                     isExploreOpen ? "transform rotate-180" : ""
@@ -82,8 +87,10 @@ const HamburgerMenu = () => {
                 className="text-gray-600 hover:text-gray-800 w-full flex justify-between items-center pl-4 pr-2"
                 onClick={() => setIsHobbiesOpen(!isHobbiesOpen)}
               >
-                <Star />
-                Hobbies
+                <span className="flex gap-2">
+                  <Star />
+                  Hobbies
+                </span>
                 <FaChevronDown
                   className={`ml-1 ${
                     isHobbiesOpen ? "transform rotate-180" : ""
