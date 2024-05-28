@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import Logo from "../assets/Logo.png";
 import Searchbar from "./Searchbar";
+import HamburgerMenu from "./HamburgerMenu";
 
 function Header() {
   return (
@@ -21,12 +22,12 @@ function Header() {
         <span className="flex items-center gap-2">
           <Compass className="text-[#8064A2] w-4 h-4" />
           Explore
-          <ChevronDown className="text-gray-300" />
+          <ChevronDown className="text-gray-400" />
         </span>
         <span className="flex items-center gap-2">
           <Star className="text-[#8064A2] w-4 h-4" />
           Hobbies
-          <ChevronDown className="text-gray-300" />
+          <ChevronDown className="text-gray-400" />
         </span>
         <Bookmark className="text-[#8064A2]" />
         <Bell className="text-[#8064A2]" />
@@ -35,9 +36,7 @@ function Header() {
           Sign In
         </button>
       </div>
-      {/* <div className="flex lg:hidden items-center gap-4">
-        <Searchbar />
-      </div> */}
+     <HamburgerMenu/>
     </header>
   );
 }
