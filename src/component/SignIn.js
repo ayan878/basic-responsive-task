@@ -4,15 +4,17 @@ import facebook from "../assets/facebook.png";
 import { Lock } from "lucide-react";
 
 function SignIn() {
+  const [isJoinIn, setIsJoinIn] = useState(false);
   const [isSignIn, setIsSignIn] = useState(true);
 
   const handleButton = () => {
     setIsSignIn(!isSignIn);
+    setIsJoinIn(isSignIn);
   };
 
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-md">
-      <div className="flex gap-6 items-start">
+      <div className="flex gap-6 items-start mb-4">
         <button
           className={`text-lg border-b-2 ${
             isSignIn
@@ -59,42 +61,29 @@ function SignIn() {
         </div>
       </div>
       <div className="flex flex-col gap-4 w-full">
-        <input
-          type="email"
-          className="w-full bg-white text-sm p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8064A2]"
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          className="w-full bg-white text-sm p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8064A2]"
-          placeholder="Password"
-        />
-        {isSignIn && (
+        {isSignIn ? (
           <div className="flex items-center justify-between w-full text-sm">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-2">
               <input type="checkbox" id="remember-me" className="" />
               <label htmlFor="remember-me" className="not-italic">
                 Remember Me
               </label>
             </div>
             <button className="flex items-center">
-              <Lock className="w-4 h-4 mr-1" />
+              <Lock className="w-4 h-4 mr-1 ml-32" />
               Forgot Password?
             </button>
           </div>
+        ) : (
+          <p className="text-xs text-center text-gray-500 not-italic">
+            By continuing, you agree to our{" "}
+            <span className="text-black">Terms of Service</span> and{" "}
+            <span className="text-black">Privacy Policy</span>
+          </p>
         )}
-        <div className="flex flex-col gap-2">
-          {!isSignIn && (
-            <p className="text-xs text-center">
-              By continuing, you agree to our{" "}
-              <span className="underline">Terms of Service</span> and{" "}
-              <span className="underline">Privacy Policy</span>
-            </p>
-          )}
-          <button className="text-white text-lg w-full h-12 bg-[#8064A2] rounded-md">
-            {isSignIn ? "Continue" : "Agree and Continue"}
-          </button>
-        </div>
+        <button className="text-white text-lg w-full h-12 bg-[#8064A2] rounded-md">
+          {isSignIn ? "Continue" : "Agree and Continue"}
+        </button>
       </div>
     </div>
   );
